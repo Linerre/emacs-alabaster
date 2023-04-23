@@ -11,12 +11,11 @@
 
 (let ((active     "#007ACC")
       (selection  "#BFDBFE")
-      (ss  "#E0E0E0")
-      ;; (ss "#353535")
-      (fg   "#000")
-      (bg   "#F7F7F7")
+      (ss "#84AEE3")
+      (fg "#000")
+      (bg "#F7F7F7")
 
-      (cm         "#707070")
+      (cm "#707070")
       (lh "#0DA59B")
       (cur "#EFEFEF")
       (pop "#272727")
@@ -30,7 +29,7 @@
       (green "#448C27")
       (str   "#448C27")
       (doc   "#5CC7D1")
-      (red   "#AA3731")
+      (err   "#AA3731")
       (cmt   "#AA3731")
 
       (magenta    "#7A3E9D")
@@ -40,12 +39,9 @@
 
   (custom-theme-set-faces
    'alabaster
-   ;; Light theme has reversed bg and fg in a black-white env
    `(default                       ((((type tty)))
-                                    (((type graphic)) :background ,fg :foreground ,bg)))
-
+                                    (((type graphic)) :background ,bg :foreground ,fg)))
    ;; Basics
-
    `(cursor                         ((t (:background ,cur))))
    `(region                         ((t (:background ,bg :extend nil))))
    `(hl-line                        ((t (:background ,hl))))
