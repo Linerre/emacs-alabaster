@@ -1,6 +1,9 @@
 ;;; alabaster-theme.el --- Alabaster theme for Emacs.
 ;;; Commentary:
 ;;; Version: 0.1.0
+;;; Optional choices:
+;;; (rg "#024347")
+;;; (st "#4b9e6b")
 ;;; Code:
 
 (deftheme alabaster
@@ -10,33 +13,31 @@
   "Scales for headers.")
 
 (let ((active     "#007ACC")
-      (selection  "#BFDBFE")
-      (ss "#84AEE3")
-      (fg "#000")
-      (bg "#F7F7F7")
+      (sel "#BFDBFE")                   ; selection: lighter cyan
+      (ss  "#84AEE3")
+      (fg  "#000")
+      (bg  "#F7F7F7")
 
       (cm "#707070")
       (lh "#0DA59B")
-      (cur "#EFEFEF")
+      (cur "#363636")
       (pop "#272727")
-      ;; (rg "#024347")
 
-      (blue  "#325CC0")
-      (fn  "#325CC0")
-      (st "#4b9e6b")
-      (tb "#000000")
+      (blue "#325CC0")                  ; defs: blue
+      (fn   "#325CC0")
+      (tb   "#000000")
 
       (green "#448C27")
-      (str   "#448C27")
-      (doc   "#5CC7D1")
+      (str   "#448C27")                 ; string: green
+      (doc   "#2D97A1")                 ; docs: cyan
       (err   "#AA3731")
       (cmt   "#AA3731")
       (inf   "#AA9031")
 
-      (magenta    "#7A3E9D")
-      (num "#7A3E9D")
-      (grey       "#777")
-      (hl     "#FFBC5D"))
+      (st    "#7A3E9D")                 ; static: magenta
+      (num   "#7A3E9D")                 ; static: magenta
+      (grey  "#777")
+      (hl    "#FFBC5D"))                ; highlight: orange
 
   (custom-theme-set-faces
    'alabaster
@@ -44,7 +45,7 @@
                                     (((type graphic)) :background ,bg :foreground ,fg)))
    ;; Basics
    `(cursor                         ((t (:background ,cur))))
-   `(region                         ((t (:background ,bg :extend nil))))
+   `(region                         ((t (:background ,sel :extend nil))))
    `(hl-line                        ((t (:background ,hl))))
    `(fringe                         ((t (:background ,bg))))
    `(show-paren-match               ((t (:background ,hl :box (:line-width (-1 . -1) :style nil)))))
@@ -131,10 +132,10 @@
    `(meow-beacon-cursor             ((t (:background ,cur))))
 
    ;; colorful paren
-   `(colorful-round           ((t ())))
-   `(colorful-square          ((t (:foreground ,str))))
-   `(colorful-curly           ((t (:foreground ,st))))
-   `(colorful-semicolon       ((t (:foreground ,fn))))
+   ;; `(colorful-round           ((t ())))
+   ;; `(colorful-square          ((t (:foreground ,str))))
+   ;; `(colorful-curly           ((t (:foreground ,st))))
+   ;; `(colorful-semicolon       ((t (:foreground ,fn))))
 
    ;; Cider
    `(cider-result-overlay-face      ((t (:inverse-video t))))
