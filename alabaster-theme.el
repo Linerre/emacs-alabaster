@@ -1,11 +1,12 @@
 ;;; alabaster-theme.el --- Alabaster theme for Emacs.
-;; Version: 0.0.1
+;;; Commentary:
+;;; Version: 0.1.0
 ;;; Code:
 
 (deftheme alabaster
   "Alabaster theme for Emacs.")
 
-(defvar carbon-theme-header-scales '(1.0 1.0 1.0 1.0 1.0 1.0 1.0)
+(defvar theme-header-scale '(1.0 1.0 1.0 1.0 1.0 1.0 1.0)
   "Scales for headers.")
 
 (let ((active     "#007ACC")
@@ -14,14 +15,17 @@
       ;; (ss "#353535")
       (fg   "#000")
       (bg   "#F7F7F7")
-      ;; (cm         "#707070")
+
+      (cm         "#707070")
+      (lh "#0DA59B")
+      (cur "#EFEFEF")
+      (pop "#272727")
+      ;; (rg "#024347")
+
       (blue  "#325CC0")
       (fn  "#325CC0")
       (st "#4b9e6b")
-
       (tb "#000000")
-      (cur "#EFEFEF")
-      (pop "#272727")
 
       (green "#448C27")
       (str   "#448C27")
@@ -43,7 +47,7 @@
    ;; Basics
 
    `(cursor                         ((t (:background ,cur))))
-   `(region                         ((t (:background ,rg :extend nil))))
+   `(region                         ((t (:background ,bg :extend nil))))
    `(hl-line                        ((t (:background ,hl))))
    `(fringe                         ((t (:background ,bg))))
    `(show-paren-match               ((t (:background ,hl :box (:line-width (-1 . -1) :style nil)))))
@@ -204,13 +208,13 @@
    `(css-selector                   ((t ())))
    ;;
    ;; Markdown
-   `(markdown-header-face-1         ((t (:underline t :height ,(nth 0 carbon-theme-header-scales)))))
-   `(markdown-header-face-2         ((t (:underline t :height ,(nth 1 carbon-theme-header-scales)))))
-   `(markdown-header-face-3         ((t (:underline t :height ,(nth 2 carbon-theme-header-scales)))))
-   `(markdown-header-face-4         ((t (:underline t :height ,(nth 3 carbon-theme-header-scales)))))
-   `(markdown-header-face-5         ((t (:underline t :height ,(nth 4 carbon-theme-header-scales)))))
-   `(markdown-header-face-6         ((t (:underline t :height ,(nth 5 carbon-theme-header-scales)))))
-   `(markdown-header-face-7         ((t (:underline t :height ,(nth 6 carbon-theme-header-scales)))))
+   `(markdown-header-face-1         ((t (:underline t :height ,(nth 0 theme-header-scale)))))
+   `(markdown-header-face-2         ((t (:underline t :height ,(nth 1 theme-header-scale)))))
+   `(markdown-header-face-3         ((t (:underline t :height ,(nth 2 theme-header-scale)))))
+   `(markdown-header-face-4         ((t (:underline t :height ,(nth 3 theme-header-scale)))))
+   `(markdown-header-face-5         ((t (:underline t :height ,(nth 4 theme-header-scale)))))
+   `(markdown-header-face-6         ((t (:underline t :height ,(nth 5 theme-header-scale)))))
+   `(markdown-header-face-7         ((t (:underline t :height ,(nth 6 theme-header-scale)))))
    ;;
    ;; ;; Telega
    `(telega-entity-type-code        ((t ())))
@@ -219,17 +223,17 @@
    `(telega-unmuted-count           ((t ())))
    ;;
    ;; ;; Org-mode
-   `(org-document-title             ((t (:bold t :height ,(nth 0 carbon-theme-header-scales)))))
+   `(org-document-title             ((t (:bold t :height ,(nth 0 theme-header-scale)))))
    `(org-link                       ((t (:underline t))))
    `(org-document-title             ((t ())))
    `(org-code                       ((t (:inherit font-lock-constant-face))))
    `(org-level-1                    ((t (:inherit font-lock-string-face :height ,(nth 0 carbon-theme-header-scales)))))
    `(org-level-2                    ((t (:inherit font-lock-function-name-face :height ,(nth 1 carbon-theme-header-scales)))))
    `(org-level-3                    ((t (:inherit font-lock-keyword-face :height ,(nth 2 carbon-theme-header-scales)))))
-   `(org-level-4                    ((t (:height ,(nth 3 carbon-theme-header-scales)))))
-   `(org-level-5                    ((t (:height ,(nth 4 carbon-theme-header-scales)))))
-   `(org-level-6                    ((t (:height ,(nth 5 carbon-theme-header-scales)))))
-   `(org-level-7                    ((t (:height ,(nth 6 carbon-theme-header-scales)))))
+   `(org-level-4                    ((t (:height ,(nth 3 theme-header-scale)))))
+   `(org-level-5                    ((t (:height ,(nth 4 theme-header-scale)))))
+   `(org-level-6                    ((t (:height ,(nth 5 theme-header-scale)))))
+   `(org-level-7                    ((t (:height ,(nth 6 theme-header-scale)))))
    ;;
    ;; ;; Treemacs
    ;; `(treemacs-root-face             ((t (:inherit font-lock-function-name-face :height 1.4 :underline t))))
