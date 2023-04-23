@@ -31,6 +31,7 @@
       (doc   "#5CC7D1")
       (err   "#AA3731")
       (cmt   "#AA3731")
+      (inf   "#AA9031")
 
       (magenta    "#7A3E9D")
       (num "#7A3E9D")
@@ -223,9 +224,9 @@
    `(org-link                       ((t (:underline t))))
    `(org-document-title             ((t ())))
    `(org-code                       ((t (:inherit font-lock-constant-face))))
-   `(org-level-1                    ((t (:inherit font-lock-string-face :height ,(nth 0 carbon-theme-header-scales)))))
-   `(org-level-2                    ((t (:inherit font-lock-function-name-face :height ,(nth 1 carbon-theme-header-scales)))))
-   `(org-level-3                    ((t (:inherit font-lock-keyword-face :height ,(nth 2 carbon-theme-header-scales)))))
+   `(org-level-1                    ((t (:inherit font-lock-string-face :height ,(nth 0 theme-header-scale)))))
+   `(org-level-2                    ((t (:inherit font-lock-function-name-face :height ,(nth 1 theme-header-scale)))))
+   `(org-level-3                    ((t (:inherit font-lock-keyword-face :height ,(nth 2 theme-header-scale)))))
    `(org-level-4                    ((t (:height ,(nth 3 theme-header-scale)))))
    `(org-level-5                    ((t (:height ,(nth 4 theme-header-scale)))))
    `(org-level-6                    ((t (:height ,(nth 5 theme-header-scale)))))
@@ -239,6 +240,7 @@
    `(eldoc-box-body                 ((t (:background ,pop :inherit variable-pitch))))
 
    `(flycheck-warning               ((t (:underline (:style wave :color ,cm)))))
+   `(flycheck-info                  ((t (:underline (:style wave :color ,inf)))))
    `(flycheck-error                 ((t (:underline (:style wave :color ,st)))))
    `(flymake-warning                ((t (:underline (:style wave :color ,st)))))
    `(flymake-error                  ((t (:underline (:style wave :color ,st)))))
