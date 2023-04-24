@@ -40,6 +40,7 @@
       (st    "#7A3E9D")                 ; static: magenta
       (num   "#7A3E9D")                 ; static: magenta
       (grey  "#777")
+      (lgrey "#A3A3A3")                 ; selection: lighter grey
       (hl    "#FFBC5D"))                ; highlight: orange
 
   (custom-theme-set-faces
@@ -52,7 +53,7 @@
    `(hl-line                        ((t (:background ,hl))))
    `(fringe                         ((t (:background ,bg))))
    `(show-paren-match               ((t (:background ,hl :box (:line-width (-1 . -1) :style nil)))))
-   `(highlight                      ((t (:inverse-video t))))
+   `(highlight                      ((t (:background ,ss :foreground ,bg))))
    `(button                         ((t (:box (:line-width (-1 . -1))))))
    `(vertical-border                ((t ())))
    ;; `(window-divider                 ((t (:foreground ,cm))))
@@ -65,6 +66,7 @@
    `(lazy-highlight                 ((t (:foreground ,lh :underline t))))
    `(compilation-info               ((t ())))
    `(compilation-warning            ((t ())))
+   `(completions-highlight          ((t ())))
    `(warning                        ((t ())))
    `(match                          ((t (:background ,sel))))
    `(secondary-selection            ((t (:background ,ss :extend nil))))
@@ -112,16 +114,26 @@
    `(company-tooltip-common-selection ((t (:bold t :foreground ,fg))))
    `(company-tooltip                ((t (:background ,pop))))
    `(company-tooltip-search         ((t ())))
-   `(company-tooltip-selection      ((t (:inverse-video t))))
+   `(company-tooltip-search-selection ((t (:background ,lgrey))))
+   `(company-tooltip-selection      ((t (:background ,lgrey))))
+   `(company-tooltip-mouse          ((t (:background ,lgrey))))
+   `(company-tooltip-preview        ((t (:background ,lgrey))))
    `(company-tooltip-annotation     ((t ())))
    ;; `(company-scrollbar-bg           ((t (:background ,cm))))
    ;; `(company-scrollbar-fg           ((t (:background ,fg))))
-   `(company-tooltip-scrollbar-track   ((t (:background ,cm))))
-   `(company-tooltip-scrollbar-thumb   ((t (:background ,fg))))
+   ;; This nulls the scrollbar in effect
+   `(company-tooltip-scrollbar-track   ((t (:background ,bg))))
+   `(company-tooltip-scrollbar-thumb   ((t (:background ,bg))))
    `(company-template-field         ((t (:inherit yas-field-highlight-face))))
 
    ;; Yasnippet
    `(yas-field-highlight-face       ((t (:underline t))))
+
+   ;; Vertico
+   `(vertico-current  ((t (:background ,sel))))
+
+   ;; Vundo
+   `(vundo-highlight  ((t (:foreground ,hl))))
 
    ;; Meow
    `(meow-beacon-indicator          ((t (:bold t))))
@@ -170,6 +182,7 @@
    `(diff-hl-insert                 ((t (:foreground ,cm :background ,cm))))
    `(diff-hl-change                 ((t (:foreground ,hl :background ,hl))))
    `(diff-hl-delete                 ((t (:foreground ,fg :background ,fg))))
+   `(diff-error                     ((t (:foreground ,err))))
 
    `(eshell-prompt                  ((t (:bold t))))
    ;;
