@@ -60,13 +60,13 @@
    ;; `(window-divider-last-pixel      ((t (:foreground ,cm))))
    ;; `(line-number                    ((t (:foreground ,cm))))
    `(line-number-current-line       ((t (:foreground ,fn :background ,hl))))
-   `(completions-common-part        ((t ())))
+   `(completions-common-part        ((t (:bold t))))
    `(minibuffer-prompt              ((t ())))
    `(lazy-highlight                 ((t (:foreground ,lh :underline t))))
    `(compilation-info               ((t ())))
    `(compilation-warning            ((t ())))
    `(warning                        ((t ())))
-   `(match                          ((t (:inverse-video t))))
+   `(match                          ((t (:background ,sel))))
    `(secondary-selection            ((t (:background ,ss :extend nil))))
    `(help-key-binding               ((t (:bold t))))
    `(shadow                         ((t (:foreground ,cm))))
@@ -77,7 +77,7 @@
 
    ;; Font Locks
    `(font-lock-comment-face         ((t (:foreground ,cmt))))
-   `(font-lock-comment-delimiter-face  ((t (:foreground ,cmt))))
+   `(font-lock-comment-delimiter-face ((t (:foreground ,cmt))))
    `(font-lock-string-face          ((t (:foreground ,str))))
    `(font-lock-doc-face             ((t (:foreground ,doc))))
    `(font-lock-builtin-face         ((t ())))
@@ -89,7 +89,7 @@
    `(font-lock-warning-face         ((t ())))
    `(font-lock-preprocessor-face    ((t ())))
    `(font-lock-number-face          ((t (:foreground ,st))))
-   `(error                          ((t (:background "red" :foreground ,fn))))
+   `(error                          ((t (:background ,err :foreground ,bg))))
 
    `(highlight-numbers-number       ((t (:foreground ,num))))
 
@@ -152,6 +152,7 @@
    `(magit-branch-remote               ((t (:foreground ,fn))))
    `(magit-header-line                 ((t ())))
    `(magit-head                        ((t ())))
+   `(magit-tag                         ((t (:foreground ,cm))))
    `(magit-section-highlight           ((t (:background ,sel))))
    `(magit-section-heading             ((t (:foreground ,fn))))
    `(magit-section-selection           ((t ())))
