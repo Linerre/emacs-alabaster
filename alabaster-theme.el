@@ -30,9 +30,12 @@
       (green "#448C27")
       (str   "#448C27")                 ; string: green
       (doc   "#2D97A1")                 ; docs: cyan
+      (ad    "#B0D9A0")                 ; magit-added
+
       (err   "#AA3731")
       (cmt   "#AA3731")
       (inf   "#AA9031")
+      (rm    "#EBB9BC")                 ; magit-removed
 
       (st    "#7A3E9D")                 ; static: magenta
       (num   "#7A3E9D")                 ; static: magenta
@@ -100,7 +103,7 @@
    ;; Mode Line
    `(tab-line                       ((t ())))
    `(mode-line                      ((t (:background ,fg :foreground ,bg))))
-   `(mode-line-inactive             ((t (:background ,cm :foreground ,hl))))
+   `(mode-line-inactive             ((t (:background ,cm :foreground ,bg))))
    `(header-line                    ((t ())))
    `(header-line-inactive           ((t ())))
 
@@ -149,14 +152,14 @@
    `(magit-branch-remote               ((t (:foreground ,fn))))
    `(magit-header-line                 ((t ())))
    `(magit-head                        ((t ())))
-   `(magit-section-highlight           ((t (:background ,hl))))
-   `(magit-section-heading             ((t ())))
+   `(magit-section-highlight           ((t (:background ,sel))))
+   `(magit-section-heading             ((t (:foreground ,fn))))
    `(magit-section-selection           ((t ())))
-   `(magit-diff-removed                ((t (:background "#311"))))
-   `(magit-diff-removed-highlight      ((t (:background "#311"))))
-   `(magit-diff-added                  ((t (:background "#131"))))
-   `(magit-diff-added-highlight        ((t (:background "#131"))))
-   `(magit-diff-context-highlight      ((t (:background ,hl :foreground ,fg))))
+   `(magit-diff-removed                ((t (:background ,rm))))
+   `(magit-diff-removed-highlight      ((t (:background ,rm))))
+   `(magit-diff-added                  ((t (:background ,ad))))
+   `(magit-diff-added-highlight        ((t (:background ,ad))))
+   `(agit-diff-context-highlight      ((t (:background ,sel :foreground ,fg))))
 
    ;; ;; SMerge
    ;; `(smerge-refined-added           ((t (:background "#253325"))))
