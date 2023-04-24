@@ -21,7 +21,7 @@
       (cm "#707070")
       (lh "#0DA59B")
       (cur "#363636")
-      (pop "#272727")
+      (pop "#e8e8e8")
 
       (blue "#325CC0")                  ; defs: blue
       (fn   "#325CC0")
@@ -106,13 +106,15 @@
 
    ;; Company
    `(company-tooltip-common         ((t ())))
-   `(company-tooltip-common-selection ((t ())))
+   `(company-tooltip-common-selection ((t (:bold t :foreground ,fg))))
    `(company-tooltip                ((t (:background ,pop))))
    `(company-tooltip-search         ((t ())))
    `(company-tooltip-selection      ((t (:inverse-video t))))
    `(company-tooltip-annotation     ((t ())))
-   `(company-scrollbar-bg           ((t (:background ,cm))))
-   `(company-scrollbar-fg           ((t (:background ,fg))))
+   ;; `(company-scrollbar-bg           ((t (:background ,cm))))
+   ;; `(company-scrollbar-fg           ((t (:background ,fg))))
+   `(company-tooltip-scrollbar-track   ((t (:background ,cm))))
+   `(company-tooltip-scrollbar-thumb   ((t (:background ,fg))))
    `(company-template-field         ((t (:inherit yas-field-highlight-face))))
 
    ;; Yasnippet
@@ -131,12 +133,6 @@
    `(meow-unknown-cursor            ((t (:background ,cur))))
    `(meow-beacon-cursor             ((t (:background ,cur))))
 
-   ;; colorful paren
-   ;; `(colorful-round           ((t ())))
-   ;; `(colorful-square          ((t (:foreground ,str))))
-   ;; `(colorful-curly           ((t (:foreground ,st))))
-   ;; `(colorful-semicolon       ((t (:foreground ,fn))))
-
    ;; Cider
    `(cider-result-overlay-face      ((t (:inverse-video t))))
    `(cider-repl-stderr-face         ((t ())))
@@ -145,6 +141,7 @@
 
    ;; Clojure
    `(clojure-character-face       ((t ())))
+   `(clojure-keyword-face         ((t (:foreground ,st))))
    `(clojure-keyword-face         ((t (:foreground ,st))))
 
    ;; Magit
@@ -266,6 +263,7 @@
 
    `(embark-keybinding              ((t (:inherit font-lock-constant-face))))
 
+   ;; Treesitter
    `(tree-sitter-hl-face:type       ((t ())))
    `(tree-sitter-hl-face:type.parameter ((t ())))
    `(tree-sitter-hl-face:type.argument ((t ())))
