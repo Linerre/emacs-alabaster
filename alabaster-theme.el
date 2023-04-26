@@ -31,6 +31,7 @@
       (str   "#448C27")                 ; string: green
       (doc   "#2D97A1")                 ; docs: cyan
       (ad    "#B0D9A0")                 ; magit-added
+      (here  "#0D7680")                 ; shell heredoc: ft-gree
 
       (err   "#AA3731")
       (cmt   "#AA3731")
@@ -74,8 +75,8 @@
    `(shadow                         ((t (:foreground ,cm))))
 
    ;; ISearch
-   `(isearch                        ((t (:inverse-video t))))
-   `(isearch-fail                   ((t (:inverse-video t))))
+   `(isearch                        ((t (:background ,sel :foreground ,fg))))
+   `(isearch-fail                   ((t (:background ,rm :foreground ,fg))))
 
    ;; Font Locks
    `(font-lock-comment-face         ((t (:foreground ,cmt))))
@@ -96,7 +97,8 @@
    `(highlight-numbers-number       ((t (:foreground ,num))))
 
    ;; shell
-   `(sh-quoted-exec                 ((t ())))
+   `(sh-quoted-exec             ((t ())))
+   `(sh-heredoc                 ((t (:foreground ,here))))
 
    ;; IMenu
    `(imenu-list-entry-face-0          ((t ())))
@@ -104,8 +106,8 @@
 
    ;; Mode Line
    `(tab-line                       ((t ())))
-   `(mode-line                      ((t (:background ,fg :foreground ,bg))))
-   `(mode-line-inactive             ((t (:background ,cm :foreground ,bg))))
+   `(mode-line                      ((t (:background ,cm :foreground ,bg))))
+   `(mode-line-inactive             ((t (:background ,lgrey :foreground ,bg))))
    `(header-line                    ((t ())))
    `(header-line-inactive           ((t ())))
 
@@ -157,7 +159,6 @@
    ;; Clojure
    `(clojure-character-face       ((t ())))
    `(clojure-keyword-face         ((t (:foreground ,st))))
-   `(clojure-keyword-face         ((t (:foreground ,st))))
 
    ;; Magit
    `(magit-branch-local                ((t (:foreground ,st))))
@@ -172,9 +173,9 @@
    `(magit-diff-removed-highlight      ((t (:background ,rm))))
    `(magit-diff-added                  ((t (:background ,ad))))
    `(magit-diff-added-highlight        ((t (:background ,ad))))
-   `(agit-diff-context-highlight      ((t (:background ,sel :foreground ,fg))))
+   `(agit-diff-context-highlight       ((t (:background ,sel :foreground ,fg))))
 
-   ;; ;; SMerge
+   ;; SMerge
    ;; `(smerge-refined-added           ((t (:background "#253325"))))
    ;; `(smerge-lower                   ((t (:background "#173017"))))
    ;;
@@ -185,8 +186,8 @@
    `(diff-error                     ((t (:foreground ,err))))
 
    `(eshell-prompt                  ((t (:bold t))))
-   ;;
-   ;; ;; Term
+
+   ;; Term
    ;; `(term-color-blue                ((t (:foreground ,blue :background ,blue))))
    ;; `(term-color-green               ((t (:foreground ,green :background ,green))))
    ;; `(term-color-red                 ((t (:foreground ,red :background ,red))))
