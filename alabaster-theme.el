@@ -174,7 +174,7 @@
    `(magit-diff-removed-highlight      ((t (:background ,rm))))
    `(magit-diff-added                  ((t (:background ,ad))))
    `(magit-diff-added-highlight        ((t (:background ,ad))))
-   `(magit-diff-context-highlight      ((t (:background ,sel :foreground ,fg))))
+   `(magit-diff-context-highlight      ((t (:background ,bg :foreground ,fg))))
    `(magit-diff-whitespace-warning     ((t (:foreground ,bg))))
 
    ;; SMerge
