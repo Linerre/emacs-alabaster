@@ -9,7 +9,7 @@
 (deftheme alabaster
   "Alabaster theme for Emacs.")
 
-(defvar theme-header-scale '(1.0 1.0 1.0 1.0 1.0 1.0 1.0)
+(defvar theme-header-scale '(1.2 1.0 1.0 1.0 1.0 1.0 1.0)
   "Scales for headers.")
 
 (let ((active     "#007ACC")
@@ -240,13 +240,13 @@
    `(org-link                       ((t (:underline t))))
    `(org-document-title             ((t ())))
    `(org-code                       ((t (:inherit font-lock-constant-face))))
-   `(org-level-1                    ((t (:inherit font-lock-string-face :height ,(nth 0 theme-header-scale)))))
-   `(org-level-2                    ((t (:inherit font-lock-function-name-face :height ,(nth 1 theme-header-scale)))))
-   `(org-level-3                    ((t (:inherit font-lock-keyword-face :height ,(nth 2 theme-header-scale)))))
-   `(org-level-4                    ((t (:height ,(nth 3 theme-header-scale)))))
-   `(org-level-5                    ((t (:height ,(nth 4 theme-header-scale)))))
-   `(org-level-6                    ((t (:height ,(nth 5 theme-header-scale)))))
-   `(org-level-7                    ((t (:height ,(nth 6 theme-header-scale)))))
+   `(org-level-1                    ((t (:foreground ,fg :bold t :height ,(nth 0 theme-header-scale)))))
+   `(org-level-2                    ((t (:foreground ,fg))))
+   `(org-level-3                    ((t (:foreground ,cm))))
+   `(org-level-4                    ((t ())))
+   `(org-level-5                    ((t ())))
+   `(org-level-6                    ((t ())))
+   `(org-level-7                    ((t ())))
    ;;
    ;; ;; Treemacs
    ;; `(treemacs-root-face             ((t (:inherit font-lock-function-name-face :height 1.4 :underline t))))
