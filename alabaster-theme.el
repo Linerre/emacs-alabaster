@@ -14,7 +14,8 @@
 
 (let ((active     "#007ACC")
       (sel "#BFDBFE")                   ; selection: lighter cyan
-      (ss  "#84AEE3")
+      (lss "#D7E6F7")                   ; even lighter cyan for some bg/rg
+      (ss  "#84AEE3")                   ; secondary-selection: darker cyan
       (fg  "#000")
       (bg  "#F7F7F7")
 
@@ -166,14 +167,15 @@
    `(magit-header-line                 ((t ())))
    `(magit-head                        ((t ())))
    `(magit-tag                         ((t (:foreground ,cm))))
-   `(magit-section-highlight           ((t (:background ,sel))))
+   `(magit-section-highlight           ((t (:background ,lss))))
    `(magit-section-heading             ((t (:foreground ,fn))))
    `(magit-section-selection           ((t ())))
    `(magit-diff-removed                ((t (:background ,rm))))
    `(magit-diff-removed-highlight      ((t (:background ,rm))))
    `(magit-diff-added                  ((t (:background ,ad))))
    `(magit-diff-added-highlight        ((t (:background ,ad))))
-   `(agit-diff-context-highlight       ((t (:background ,sel :foreground ,fg))))
+   `(magit-diff-context-highlight      ((t (:background ,sel :foreground ,fg))))
+   `(magit-diff-whitespace-warning     ((t (:foreground ,bg))))
 
    ;; SMerge
    ;; `(smerge-refined-added           ((t (:background "#253325"))))
