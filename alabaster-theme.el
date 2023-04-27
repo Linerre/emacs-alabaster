@@ -9,7 +9,7 @@
 (deftheme alabaster
   "Alabaster theme for Emacs.")
 
-(defvar theme-header-scale '(1.2 1.0 1.0 1.0 1.0 1.0 1.0)
+(defvar theme-header-scale '(1.5 1.2 1.1 1.0 1.0 1.0 1.0)
   "Scales for headers.")
 
 (let ((active     "#007ACC")
@@ -33,6 +33,7 @@
       (doc   "#2D97A1")                 ; docs: cyan
       (ad    "#B0D9A0")                 ; magit-added
       (here  "#0D7680")                 ; shell heredoc: ft-gree
+      (solg  "#1DD79B")                 ; flycheck-info: solana green
 
       (err   "#AA3731")
       (cmt   "#AA3731")
@@ -52,7 +53,7 @@
    ;; Basics
    `(cursor                         ((t (:background ,cur))))
    `(region                         ((t (:background ,sel :extend nil))))
-   `(hl-line                        ((t (:background ,hl))))
+   `(hl-line                        ((t (:background ,lss))))
    `(fringe                         ((t (:background ,bg))))
    `(show-paren-match               ((t (:background ,hl :box (:line-width (-1 . -1) :style nil)))))
    `(highlight                      ((t (:background ,ss :foreground ,bg))))
@@ -221,23 +222,23 @@
    `(web-mode-html-tag-bracket-face ((t (:inherit parenthesis))))
    `(web-mode-symbol-face           ((t ())))
    `(css-selector                   ((t ())))
-   ;;
+
    ;; Markdown
-   `(markdown-header-face-1         ((t (:underline t :height ,(nth 0 theme-header-scale)))))
-   `(markdown-header-face-2         ((t (:underline t :height ,(nth 1 theme-header-scale)))))
-   `(markdown-header-face-3         ((t (:underline t :height ,(nth 2 theme-header-scale)))))
-   `(markdown-header-face-4         ((t (:underline t :height ,(nth 3 theme-header-scale)))))
-   `(markdown-header-face-5         ((t (:underline t :height ,(nth 4 theme-header-scale)))))
-   `(markdown-header-face-6         ((t (:underline t :height ,(nth 5 theme-header-scale)))))
-   `(markdown-header-face-7         ((t (:underline t :height ,(nth 6 theme-header-scale)))))
-   ;;
-   ;; ;; Telega
+   `(markdown-header-face-1         ((t (:bold t :height ,(nth 0 theme-header-scale)))))
+   `(markdown-header-face-2         ((t (:bold t :height ,(nth 1 theme-header-scale)))))
+   `(markdown-header-face-3         ((t (:bold t :height ,(nth 2 theme-header-scale)))))
+   `(markdown-header-face-4         ((t (:bold t :height ,(nth 3 theme-header-scale)))))
+   ;; `(markdown-header-face-5         ((t ())))
+   ;; `(markdown-header-face-6         ((t ())))
+   ;; `(markdown-header-face-7         ((t ())))
+
+   ;; Telega
    `(telega-entity-type-code        ((t ())))
    `(telega-msg-heading             ((t ())))
    `(telega-msg-self-title          ((t (:foreground ,fn))))
    `(telega-unmuted-count           ((t ())))
-   ;;
-   ;; ;; Org-mode
+
+   ;; Org-mode
    `(org-document-title             ((t (:bold t :height ,(nth 0 theme-header-scale)))))
    `(org-link                       ((t (:underline t))))
    `(org-document-title             ((t ())))
@@ -249,19 +250,20 @@
    `(org-level-5                    ((t ())))
    `(org-level-6                    ((t ())))
    `(org-level-7                    ((t ())))
-   ;;
-   ;; ;; Treemacs
+
+   ;; Treemacs
    ;; `(treemacs-root-face             ((t (:inherit font-lock-function-name-face :height 1.4 :underline t))))
    `(fill-column-indicator          ((t (:foreground ,cm))))
    `(scroll-bar                     ((t (:foreground ,fg))))
    `(parenthesis                    ((t (:foreground ,cm))))
    `(eldoc-box-body                 ((t (:background ,pop :inherit variable-pitch))))
 
-   `(flycheck-warning               ((t (:underline (:style wave :color ,cm)))))
+   `(flycheck-warning               ((t (:underline (:style wave :color ,hl)))))
    `(flycheck-info                  ((t (:underline (:style wave :color ,inf)))))
-   `(flycheck-error                 ((t (:underline (:style wave :color ,st)))))
-   `(flymake-warning                ((t (:underline (:style wave :color ,st)))))
-   `(flymake-error                  ((t (:underline (:style wave :color ,st)))))
+   `(flycheck-error-list-info       ((t (:foreground ,solg))))
+   `(flycheck-error                 ((t (:underline (:style wave :color ,err)))))
+   `(flymake-warning                ((t (:underline (:style wave :color ,hl)))))
+   `(flymake-error                  ((t (:underline (:style wave :color ,err)))))
    `(flymake-note                   ((t (:underline (:style wave :color ,cm)))))
 
    `(wgrep-face                     ((t (:underline ,st))))
