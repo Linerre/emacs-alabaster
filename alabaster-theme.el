@@ -232,7 +232,7 @@
    `(markdown-pre-face                  ((t (:inherit default :foreground ,cm))))
    `(markdown-url-face                  ((t (:foreground ,cm))))
    `(markdown-code-face                 ((t (:inherit default))))
-   `(markdown-inline-code-face          ((t (:inherit default :foreground ,cmt,))))
+   `(markdown-inline-code-face          ((t (:inherit default :foreground ,cmt))))
    `(markdown-highlighting-face         ((t (:background ,hl))))
 
    ;; Telega
