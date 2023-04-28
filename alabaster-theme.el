@@ -75,6 +75,7 @@
    `(secondary-selection            ((t (:background ,ss :extend nil))))
    `(help-key-binding               ((t (:bold t))))
    `(shadow                         ((t (:foreground ,cm))))
+   `(error                          ((t (:foreground ,err))))
 
    ;; ISearch
    `(isearch                        ((t (:background ,sel :foreground ,fg))))
@@ -94,7 +95,6 @@
    `(font-lock-warning-face         ((t ())))
    `(font-lock-preprocessor-face    ((t ())))
    `(font-lock-number-face          ((t (:foreground ,st))))
-   `(error                          ((t (:background ,err :foreground ,bg))))
 
    `(highlight-numbers-number       ((t (:foreground ,num))))
 
@@ -260,8 +260,9 @@
 
    `(flycheck-warning               ((t (:underline (:style wave :color ,hl)))))
    `(flycheck-info                  ((t (:underline (:style wave :color ,inf)))))
-   `(flycheck-error-list-info       ((t (:foreground ,solg))))
    `(flycheck-error                 ((t (:underline (:style wave :color ,err)))))
+   `(flycheck-error-list-error      ((t (:foreground "#FC7C7C")))) ; variant of err red
+   `(flycheck-error-list-info       ((t (:foreground ,solg))))
    `(flymake-warning                ((t (:underline (:style wave :color ,hl)))))
    `(flymake-error                  ((t (:underline (:style wave :color ,err)))))
    `(flymake-note                   ((t (:underline (:style wave :color ,cm)))))
