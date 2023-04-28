@@ -223,16 +223,17 @@
    `(css-selector                   ((t ())))
 
    ;; Markdown
-   `(markdown-header-face-1        ((t (:bold t :height ,(nth 0 theme-header-scale)))))
-   `(markdown-header-face-2        ((t (:bold t :height ,(nth 1 theme-header-scale)))))
-   `(markdown-header-face-3        ((t (:bold t :height ,(nth 2 theme-header-scale)))))
-   `(markdown-header-face-4        ((t (:bold t))))
-   `(markdown-header-face-5        ((t ())))
-   `(markdown-header-face-6        ((t ())))
-   `(markdown-pre-face             ((t (:foreground ,cm))))
-   `(markdown-url-face             ((t (:foreground ,cm))))
-   `(markdown-inline-face          ((t (:foreground ,cmt))))
-   `(markdown-highlighting-face    ((t (:background ,hl))))
+   `(markdown-header-face-1             ((t (:bold t :height ,(nth 0 theme-header-scale)))))
+   `(markdown-header-face-2             ((t (:bold t :height ,(nth 1 theme-header-scale)))))
+   `(markdown-header-face-3             ((t (:bold t :height ,(nth 2 theme-header-scale)))))
+   `(markdown-header-face-4             ((t (:bold t))))
+   `(markdown-header-face-5             ((t ())))
+   `(markdown-header-face-6             ((t ())))
+   `(markdown-pre-face                  ((t (:inherit default :foreground ,cm))))
+   `(markdown-url-face                  ((t (:foreground ,cm))))
+   `(markdown-code-face                 ((t (:inherit default))))
+   `(markdown-inline-code-face          ((t (:inherit default :foreground ,cmt,))))
+   `(markdown-highlighting-face         ((t (:background ,hl))))
 
    ;; Telega
    `(telega-entity-type-code        ((t ())))
