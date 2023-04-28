@@ -95,7 +95,6 @@
    `(font-lock-warning-face         ((t ())))
    `(font-lock-preprocessor-face    ((t ())))
    `(font-lock-number-face          ((t (:foreground ,st))))
-
    `(highlight-numbers-number       ((t (:foreground ,num))))
 
    ;; shell
@@ -325,7 +324,7 @@
    `(tree-sitter-hl-face:method.call ((t ())))
    `(tree-sitter-hl-face:operator ((t ())))
    `(tree-sitter-hl-face:punctuation ((t ())))
-   `(tree-sitter-hl-face:punctuation.bracket ((t ())))
+   `(tree-sitter-hl-face:punctuation.bracket ((t (:foreground ,cm))))
    `(tree-sitter-hl-face:punctuation.delimiter ((t ())))
    `(tree-sitter-hl-face:punctuation.special ((t ())))
    ;; dim
