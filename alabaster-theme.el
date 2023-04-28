@@ -261,8 +261,7 @@
    `(flycheck-warning               ((t (:underline (:style wave :color ,hl)))))
    `(flycheck-info                  ((t (:underline (:style wave :color ,inf)))))
    `(flycheck-error                 ((t (:underline (:style wave :color ,err)))))
-   `(flycheck-error-list-error      ((t (:foreground "#FC7C7C")))) ; variant of err red
-   `(flycheck-error-list-info       ((t (:foreground ,solg))))
+   `(flycheck-error-list-info       ((t (:foreground ,bg :background ,green))))
    `(flymake-warning                ((t (:underline (:style wave :color ,hl)))))
    `(flymake-error                  ((t (:underline (:style wave :color ,err)))))
    `(flymake-note                   ((t (:underline (:style wave :color ,cm)))))
@@ -274,6 +273,9 @@
    `(erc-input-face                 ((t (:inherit font-lock-function-name-face))))
    `(erc-timestamp-face             ((t (:inherit font-lock-constant-face))))
    `(erc-notice-face                ((t (:inherit font-lock-comment-face))))
+   `(lsp-modeline-code-actions-face ((t (:foreground ,bg))))
+   `(lsp-modeline-code-actions-preferred-face ((t (:foreground ,hl))))
+
 
    `(tab-bar                        ((t (:background ,fg :foreground ,bg))))
    `(tab-bar-tab                    ((t (:inverse-video t :bold t))))
