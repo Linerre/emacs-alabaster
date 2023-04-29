@@ -188,10 +188,10 @@
    `(magit-section-highlight           ((t (:background ,lblue))))
    `(magit-section-heading             ((t (:foreground ,blue))))
    `(magit-section-selection           ((t ())))
-   `(magit-diff-removed                ((t (:foreground "gray50"))))
+   `(magit-diff-removed                ((t (:background ,rm :foreground "gray50"))))
    `(magit-diff-removed-highlight      ((t (:background ,rm))))
-   `(magit-diff-added                  ((t (:foreground "gray50"))))
-   `(magit-diff-added-highlight        ((t (:background ,lgreen))))
+   `(magit-diff-added                  ((t (:background ,ad :foreground "gray50"))))
+   `(magit-diff-added-highlight        ((t (:background ,ad))))
    `(magit-diff-context-highlight      ((t (:background ,bg :foreground ,fg))))
    `(magit-diff-whitespace-warning     ((t (:foreground ,bg))))
 
