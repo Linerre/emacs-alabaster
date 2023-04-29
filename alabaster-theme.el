@@ -1,7 +1,7 @@
 ;;; alabaster-theme.el --- Alabaster theme for Emacs.
 ;;; Commentary:
 
-;;; Version: 0.1.7
+;;; Version: 0.1.8
 
 ;;; Original color palette
 ;;; (active     "#007ACC")
@@ -47,7 +47,7 @@
 
       ;; lighter variantions of the above, prefiex with `l'
       (lblue      "#DBF1FF")            ; secondary selection, session background
-      (lgree      "#DBECB6")            ; git added
+      (lgreen     "#DBECB6")            ; git added
       (ad         "#B0D9A0")            ; git added highlit
       (lred       "#FFE0E0")            ; git removed
       (rm         "#EBB9BC")            ; git removed highlight
@@ -188,10 +188,10 @@
    `(magit-section-highlight           ((t (:background ,lblue))))
    `(magit-section-heading             ((t (:foreground ,blue))))
    `(magit-section-selection           ((t ())))
-   `(magit-diff-removed                ((t (:background ,lred :foreground grey50))))
+   `(magit-diff-removed                ((t (:background ,lred :foreground "#7F7F7F"))))
    `(magit-diff-removed-highlight      ((t (:background ,rm))))
-   `(magit-diff-added                  ((t (:background ,lgree, :foreground grey50))))
-   `(magit-diff-added-highlight        ((t (:background ,ad))))
+   `(magit-diff-added                  ((t (:background ,lgreen :foreground "#7F7F7F"))))
+   `(magit-diff-added-highlight        ((t (:background ,lgreen))))
    `(magit-diff-context-highlight      ((t (:background ,bg :foreground ,fg))))
    `(magit-diff-whitespace-warning     ((t (:foreground ,bg))))
 
