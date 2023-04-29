@@ -1,9 +1,27 @@
 ;;; alabaster-theme.el --- Alabaster theme for Emacs.
 ;;; Commentary:
-;;; Version: 0.1.0
+
+;;; Version: 0.1.7
+
+;;; Original color palette
+;;; (active     "#007ACC")
+;;; (inactive   "#E0E0E0")
+;;; (selection  "#BFDBFE")
+;;; (ignored    "#AAAAAA")
+;;; (blue       "#325CC0")
+;;; (green      "#448C27")
+;;; (red        "#AA3731")
+;;; (megenta    "#7A3E9D")
+;;; (grey       "#777777")
+;;; (orange     "#FFBC5D")
+;;; (yellow     "#FFFABC")
+;;; (fg         "#000000")
+;;; (bg         "#F7F7F7")
+
 ;;; Optional choices:
 ;;; (rg "#024347")
 ;;; (st "#4b9e6b")
+;;; (blue "#169EDD")
 ;;; Code:
 
 (deftheme alabaster
@@ -12,39 +30,41 @@
 (defvar theme-header-scale '(1.5 1.2 1.1 1.0 1.0 1.0 1.0)
   "Scales for headers.")
 
-(let ((active     "#007ACC")
-      (sel "#BFDBFE")                   ; selection: lighter cyan
-      (lss "#D7E6F7")                   ; even lighter cyan for some bg/rg
-      (ss  "#84AEE3")                   ; secondary-selection: darker cyan
-      (fg  "#000")
-      (bg  "#F7F7F7")
+(let (;; original alabaster color palette
+      (active     "#007ACC")
+      (inactive   "#E0E0E0")
+      (selection  "#BFDBFE")
+      (ignored    "#AAAAAA")
+      (blue       "#325CC0")            ; identifiers
+      (green      "#448C27")            ; string
+      (red        "#AA3731")            ; error, comment
+      (magenta    "#7A3E9D")            ; static: number, constants
+      (grey       "#777777")
+      (orange     "#FFBC5D")            ; highlight
+      (yellow     "#FFFABC")
+      (fg         "#000000")
+      (bg         "#F7F7F7")
 
-      (cm "#707070")
-      (lh "#0DA59B")
-      (cur "#363636")
-      (pop "#e8e8e8")
-
-      (blue "#325CC0")                  ; defs: blue
-      (fn   "#325CC0")
-      (tb   "#000000")
-
-      (green "#448C27")
-      (str   "#448C27")                 ; string: green
-      (doc   "#2D97A1")                 ; docs: cyan
-      (ad    "#B0D9A0")                 ; magit-added
-      (here  "#0D7680")                 ; shell heredoc: ft-gree
-      (solg  "#1DD79B")                 ; flycheck-info: solana green
-
-      (err   "#AA3731")
-      (cmt   "#AA3731")
-      (inf   "#AA9031")
-      (rm    "#EBB9BC")                 ; magit-removed
-
-      (st    "#7A3E9D")                 ; static: magenta
-      (num   "#7A3E9D")                 ; static: magenta
-      (grey  "#777")
-      (lgrey "#A3A3A3")                 ; selection: lighter grey
-      (hl    "#FFBC5D"))                ; highlight: orange
+      ;; lighter variantions of the above, prefiex with `l'
+      (lblue      "#DBF1FF")            ; secondary selection, session background
+      (lgree      "#DBECB6")            ; git added
+      (lred       "#FFE0E0")            ; git removed
+      (lmagenta   "#F9E0FF")
+      (lfg        "#363636")                 ; dim version of bg
+      (lgrey      "#A3A3A3")                 ; selection: lighter grey
+      (cm         "#707070")
+      (lh         "#0DA59B")
+      (cur        "#363636")
+      (pop        "#E8E8E8")
+      (fn         "#325CC0")
+      (tb         "#000000")
+      (doc        "#2D97A1")                 ; docs: cyan
+      (ad         "#B0D9A0")                 ; magit-added
+      (here       "#0D7680")                 ; shell heredoc: ft-gree
+      (solg       "#1DD79B")                 ; flycheck-info: solana green
+      (inf        "#AA9031")
+      (rm         "#EBB9BC")                 ; magit-removed
+      (hl         "#FFBC5D"))                ; highlight: orange
 
   (custom-theme-set-faces
    'alabaster
@@ -52,18 +72,19 @@
                                     (((type graphic)) :background ,bg :foreground ,fg)))
    ;; Basics
    `(cursor                         ((t (:background ,cur))))
-   `(region                         ((t (:background ,sel :extend nil))))
-   `(hl-line                        ((t (:background ,lss))))
+   `(region                         ((t (:background ,selection :extend nil))))
+   `(hl-line                        ((t (:background ,lblue))))
    `(fringe                         ((t (:background ,bg))))
-   `(show-paren-match               ((t (:background ,hl :box (:line-width (-1 . -1) :style nil)))))
-   `(highlight                      ((t (:background ,ss :foreground ,bg))))
+   ;; `(show-paren-match               ((t (:background ,hl :box (:line-width (-1 . -1) :style nil)))))
+   `(show-paren-match               ((t (:background ,active :foreground ,bg :underline ,active))))
+   `(highlight                      ((t (:background ,lblue :foreground ,bg))))
    `(button                         ((t (:box (:line-width (-1 . -1))))))
    `(vertical-border                ((t ())))
    ;; `(window-divider                 ((t (:foreground ,cm))))
    ;; `(window-divider-first-pixel     ((t (:foreground ,cm))))
    ;; `(window-divider-last-pixel      ((t (:foreground ,cm))))
    ;; `(line-number                    ((t (:foreground ,cm))))
-   `(line-number-current-line       ((t (:foreground ,fn :background ,hl))))
+   `(line-number-current-line       ((t (:foreground ,fg :background ,hl))))
    `(completions-common-part        ((t (:bold t))))
    `(minibuffer-prompt              ((t ())))
    `(lazy-highlight                 ((t (:foreground ,lh :underline t))))
@@ -71,31 +92,30 @@
    `(compilation-warning            ((t ())))
    `(completions-highlight          ((t ())))
    `(warning                        ((t ())))
-   `(match                          ((t (:background ,sel))))
-   `(secondary-selection            ((t (:background ,ss :extend nil))))
+   `(match                          ((t (:background ,selection))))
+   `(secondary-selection            ((t (:background ,lblue :extend nil))))
    `(help-key-binding               ((t (:bold t))))
    `(shadow                         ((t (:foreground ,cm))))
-   `(error                          ((t (:foreground ,err))))
+   `(error                          ((t (:foreground ,red))))
 
    ;; ISearch
-   `(isearch                        ((t (:background ,sel :foreground ,fg))))
+   `(isearch                        ((t (:background ,selection :foreground ,fg))))
    `(isearch-fail                   ((t (:background ,rm :foreground ,fg))))
 
    ;; Font Locks
-   `(font-lock-comment-face         ((t (:foreground ,cmt))))
-   `(font-lock-comment-delimiter-face ((t (:foreground ,cmt))))
-   `(font-lock-string-face          ((t (:foreground ,str))))
-   `(font-lock-doc-face             ((t (:foreground ,doc))))
-   `(font-lock-builtin-face         ((t ())))
-   `(font-lock-type-face            ((t ())))
-   `(font-lock-variable-name-face   ((t ())))
-   `(font-lock-keyword-face         ((t ())))
-   `(font-lock-constant-face        ((t (:foreground ,st))))
-   `(font-lock-function-name-face   ((t (:foreground ,fn))))
-   `(font-lock-warning-face         ((t ())))
-   `(font-lock-preprocessor-face    ((t ())))
-   `(font-lock-number-face          ((t (:foreground ,st))))
-   `(highlight-numbers-number       ((t (:foreground ,num))))
+   `(font-lock-comment-delimiter-face ((t (:foreground ,red))))
+   `(font-lock-string-face            ((t (:foreground ,green))))
+   `(font-lock-doc-face               ((t (:foreground ,doc))))
+   `(font-lock-builtin-face           ((t ())))
+   `(font-lock-type-face              ((t ())))
+   `(font-lock-variable-name-face     ((t ())))
+   `(font-lock-keyword-face           ((t ())))
+   `(font-lock-constant-face          ((t (:foreground ,magenta))))
+   `(font-lock-function-name-face     ((t (:foreground ,blue))))
+   `(font-lock-warning-face           ((t ())))
+   `(font-lock-preprocessor-face      ((t ())))
+   `(font-lock-number-face            ((t (:foreground ,magenta))))
+   `(highlight-numbers-number         ((t (:foreground ,magenta))))
 
    ;; shell
    `(sh-quoted-exec             ((t ())))
@@ -113,27 +133,25 @@
    `(header-line-inactive           ((t ())))
 
    ;; Company
-   `(company-tooltip-common         ((t ())))
-   `(company-tooltip-common-selection ((t (:bold t :foreground ,fg))))
-   `(company-tooltip                ((t (:background ,pop))))
-   `(company-tooltip-search         ((t ())))
-   `(company-tooltip-search-selection ((t (:background ,lgrey))))
-   `(company-tooltip-selection      ((t (:background ,lgrey))))
-   `(company-tooltip-mouse          ((t (:background ,lgrey))))
-   `(company-tooltip-preview        ((t (:background ,lgrey))))
-   `(company-tooltip-annotation     ((t ())))
-   ;; `(company-scrollbar-bg           ((t (:background ,cm))))
-   ;; `(company-scrollbar-fg           ((t (:background ,fg))))
+   `(company-tooltip-common            ((t ())))
+   `(company-tooltip-common-selection  ((t (:bold t :foreground ,fg))))
+   `(company-tooltip                   ((t (:background ,pop))))
+   `(company-tooltip-search            ((t ())))
+   `(company-tooltip-search-selection  ((t (:background ,lgrey))))
+   `(company-tooltip-selection         ((t (:background ,lgrey))))
+   `(company-tooltip-mouse             ((t (:background ,lgrey))))
+   `(company-tooltip-preview           ((t (:background ,lgrey))))
+   `(company-tooltip-annotation        ((t ())))
    ;; This nulls the scrollbar in effect
    `(company-tooltip-scrollbar-track   ((t (:background ,bg))))
    `(company-tooltip-scrollbar-thumb   ((t (:background ,bg))))
-   `(company-template-field         ((t (:inherit yas-field-highlight-face))))
+   `(company-template-field            ((t (:inherit yas-field-highlight-face))))
 
    ;; Yasnippet
    `(yas-field-highlight-face       ((t (:underline t))))
 
    ;; Vertico
-   `(vertico-current  ((t (:background ,sel))))
+   `(vertico-current  ((t (:background ,lblue))))
 
    ;; Vundo
    `(vundo-highlight  ((t (:foreground ,hl))))
@@ -159,16 +177,16 @@
 
    ;; Clojure
    `(clojure-character-face       ((t ())))
-   `(clojure-keyword-face         ((t (:foreground ,st))))
+   `(clojure-keyword-face         ((t (:foreground ,magenta))))
 
    ;; Magit
-   `(magit-branch-local                ((t (:foreground ,st))))
-   `(magit-branch-remote               ((t (:foreground ,fn))))
+   `(magit-branch-local                ((t (:foreground ,magenta))))
+   `(magit-branch-remote               ((t (:foreground ,blue))))
    `(magit-header-line                 ((t ())))
    `(magit-head                        ((t ())))
    `(magit-tag                         ((t (:foreground ,cm))))
-   `(magit-section-highlight           ((t (:background ,lss))))
-   `(magit-section-heading             ((t (:foreground ,fn))))
+   `(magit-section-highlight           ((t (:background ,lblue))))
+   `(magit-section-heading             ((t (:foreground ,blue))))
    `(magit-section-selection           ((t ())))
    `(magit-diff-removed                ((t (:background ,rm))))
    `(magit-diff-removed-highlight      ((t (:background ,rm))))
@@ -185,7 +203,7 @@
    `(diff-hl-insert                 ((t (:foreground ,cm :background ,cm))))
    `(diff-hl-change                 ((t (:foreground ,hl :background ,hl))))
    `(diff-hl-delete                 ((t (:foreground ,fg :background ,fg))))
-   `(diff-error                     ((t (:foreground ,err))))
+   `(diff-error                     ((t (:foreground ,red))))
 
    `(eshell-prompt                  ((t (:bold t))))
 
@@ -232,13 +250,13 @@
    `(markdown-pre-face                  ((t (:inherit default :foreground ,cm))))
    `(markdown-url-face                  ((t (:foreground ,cm))))
    `(markdown-code-face                 ((t (:inherit default))))
-   `(markdown-inline-code-face          ((t (:inherit default :foreground ,cmt))))
+   `(markdown-inline-code-face          ((t (:inherit default :foreground ,red))))
    `(markdown-highlighting-face         ((t (:background ,hl))))
 
    ;; Telega
    `(telega-entity-type-code        ((t ())))
    `(telega-msg-heading             ((t ())))
-   `(telega-msg-self-title          ((t (:foreground ,fn))))
+   `(telega-msg-self-title          ((t (:foreground ,blue))))
    `(telega-unmuted-count           ((t ())))
 
    ;; Org-mode
@@ -259,17 +277,17 @@
    `(fill-column-indicator          ((t (:foreground ,cm))))
    `(scroll-bar                     ((t (:foreground ,fg))))
    `(parenthesis                    ((t (:foreground ,cm))))
-   `(eldoc-box-body                 ((t (:background ,pop :inherit variable-pitch))))
+   `(eldoc-box-body                 ((t (:background ,pop :inherit default))))
 
    `(flycheck-warning               ((t (:underline (:style wave :color ,hl)))))
    `(flycheck-info                  ((t (:underline (:style wave :color ,inf)))))
-   `(flycheck-error                 ((t (:underline (:style wave :color ,err)))))
+   `(flycheck-error                 ((t (:underline (:style wave :color ,red)))))
    `(flycheck-error-list-info       ((t (:foreground ,bg :background ,green))))
    `(flymake-warning                ((t (:underline (:style wave :color ,hl)))))
-   `(flymake-error                  ((t (:underline (:style wave :color ,err)))))
+   `(flymake-error                  ((t (:underline (:style wave :color ,red)))))
    `(flymake-note                   ((t (:underline (:style wave :color ,cm)))))
 
-   `(wgrep-face                     ((t (:underline ,st))))
+   `(wgrep-face                     ((t (:underline ,magenta))))
 
    `(anzu-mode-line                 ((t (:foreground ,bg :background ,fg))))
    `(erc-nick-default-face          ((t (:inherit font-lock-keyword-face))))
@@ -284,10 +302,11 @@
    `(tab-bar-tab                    ((t (:inverse-video t :bold t))))
    `(tab-bar-tab-inactive           ((t ())))
 
-   `(ansi-color-blue                ((t (:foreground "#169EDD"))))
-   `(ansi-color-bright-blue         ((t (:foreground "#169EDD"))))
+   `(ansi-color-blue                ((t (:foreground ,active))))
+   `(ansi-color-bright-blue         ((t (:foreground ,selection))))
    `(yascroll:thumb-fringe          ((t (:foreground ,cm :background ,cm))))
    `(yascroll:thumb-text-area       ((t (:foreground ,cm :background ,cm))))
+   `(yas-field-highlight-face       ((t (:foreground ,fg :background ,lblue))))
 
    `(embark-keybinding              ((t (:inherit font-lock-constant-face))))
 
@@ -304,19 +323,19 @@
    `(tree-sitter-hl-face:variable.special ((t ())))
    `(tree-sitter-hl-face:property ((t ())))
    `(tree-sitter-hl-face:property.definition ((t ())))
-   `(tree-sitter-hl-face:comment ((t (:foreground ,cmt))))
+   `(tree-sitter-hl-face:comment ((t (:foreground ,red))))
    ;;
    `(tree-sitter-hl-face:doc ((t (:foreground ,doc))))
-   `(tree-sitter-hl-face:string ((t (:foreground ,str))))
+   `(tree-sitter-hl-face:string ((t (:foreground ,green))))
    ;;
-   `(tree-sitter-hl-face:string.special ((t (:foreground ,str))))
+   `(tree-sitter-hl-face:string.special ((t (:foreground ,green))))
    ;;
    `(tree-sitter-hl-face:escape ((t ())))
    `(tree-sitter-hl-face:embedded ((t ())))
    ;;
    `(tree-sitter-hl-face:keyword ((t ())))
    ;;
-   `(tree-sitter-hl-face:function ((t (:foreground ,fn))))
+   `(tree-sitter-hl-face:function ((t (:foreground ,blue))))
    `(tree-sitter-hl-face:function.builtin ((t ())))
    `(tree-sitter-hl-face:function.call ((t ())))
    `(tree-sitter-hl-face:function.macro ((t ())))
@@ -334,9 +353,9 @@
    ;; dim
    `(tree-sitter-hl-face:label ((t ())))
    `(tree-sitter-hl-face:constant ((t ())))
-   `(tree-sitter-hl-face:constant.builtin ((t (:foreground ,st))))
+   `(tree-sitter-hl-face:constant.builtin ((t (:foreground ,magenta))))
    ;;
-   `(tree-sitter-hl-face:number ((t (:foreground ,st))))
+   `(tree-sitter-hl-face:number ((t (:foreground ,magenta))))
    `(tree-sitter-hl-face:tag ((t ())))
    `(tree-sitter-hl-face:attribute ((t ())))))
 
