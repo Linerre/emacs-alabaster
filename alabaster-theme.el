@@ -48,7 +48,9 @@
       ;; lighter variantions of the above, prefiex with `l'
       (lblue      "#DBF1FF")            ; secondary selection, session background
       (lgree      "#DBECB6")            ; git added
+      (ad         "#B0D9A0")            ; git added highlit
       (lred       "#FFE0E0")            ; git removed
+      (rm         "#EBB9BC")            ; git removed highlight
       (lmagenta   "#F9E0FF")
       (lfg        "#363636")                 ; dim version of bg
       (lgrey      "#A3A3A3")                 ; selection: lighter grey
@@ -59,11 +61,9 @@
       (fn         "#325CC0")
       (tb         "#000000")
       (doc        "#2D97A1")                 ; docs: cyan
-      (ad         "#B0D9A0")                 ; magit-added
       (here       "#0D7680")                 ; shell heredoc: ft-gree
       (solg       "#1DD79B")                 ; flycheck-info: solana green
       (inf        "#AA9031")
-      (rm         "#EBB9BC")                 ; magit-removed
       (hl         "#FFBC5D"))                ; highlight: orange
 
   (custom-theme-set-faces
@@ -76,7 +76,7 @@
    `(hl-line                        ((t (:background ,lblue))))
    `(fringe                         ((t (:background ,bg))))
    ;; `(show-paren-match               ((t (:background ,hl :box (:line-width (-1 . -1) :style nil)))))
-   `(show-paren-match               ((t (:background ,active :foreground ,bg :underline ,active))))
+   `(show-paren-match               ((t (:foreground ,active :underline ,active))))
    `(highlight                      ((t (:background ,lblue :foreground ,bg))))
    `(button                         ((t (:box (:line-width (-1 . -1))))))
    `(vertical-border                ((t ())))
@@ -188,9 +188,9 @@
    `(magit-section-highlight           ((t (:background ,lblue))))
    `(magit-section-heading             ((t (:foreground ,blue))))
    `(magit-section-selection           ((t ())))
-   `(magit-diff-removed                ((t (:background ,rm))))
+   `(magit-diff-removed                ((t (:background ,lred))))
    `(magit-diff-removed-highlight      ((t (:background ,rm))))
-   `(magit-diff-added                  ((t (:background ,ad))))
+   `(magit-diff-added                  ((t (:background ,lgree))))
    `(magit-diff-added-highlight        ((t (:background ,ad))))
    `(magit-diff-context-highlight      ((t (:background ,bg :foreground ,fg))))
    `(magit-diff-whitespace-warning     ((t (:foreground ,bg))))
