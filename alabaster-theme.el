@@ -52,19 +52,19 @@
       (lred       "#FFE0E0")            ; git removed
       (rm         "#EBB9BC")            ; git removed highlight
       (lmagenta   "#F9E0FF")
-      (lfg        "#363636")                 ; dim version of bg
-      (lgrey      "#A3A3A3")                 ; selection: lighter grey
+      (lfg        "#363636")            ; dim version of bg
+      (lgrey      "#A3A3A3")            ; selection: lighter grey
       (cm         "#707070")
       (lh         "#0DA59B")
       (cur        "#363636")
       (pop        "#E8E8E8")
       (fn         "#325CC0")
       (tb         "#000000")
-      (doc        "#2D97A1")                 ; docs: cyan
-      (here       "#0D7680")                 ; shell heredoc: ft-gree
-      (solg       "#1DD79B")                 ; flycheck-info: solana green
+      (doc        "#2D97A1")            ; docs: cyan
+      (here       "#0D7680")            ; shell heredoc: ft-gree
+      (solg       "#1DD79B")            ; flycheck-info: solana green
       (inf        "#AA9031")
-      (hl         "#FFBC5D"))                ; highlight: orange
+      (hl         "#FFBC5D"))           ; highlight: orange
 
   (custom-theme-set-faces
    'alabaster
@@ -147,8 +147,11 @@
    `(company-tooltip-scrollbar-thumb   ((t (:background ,bg))))
    `(company-template-field            ((t (:inherit yas-field-highlight-face))))
 
+   ;; Cargo
+   `(cargo-process--standard-face      ((t (:inherit default))))
+
    ;; Yasnippet
-   `(yas-field-highlight-face       ((t (:underline t))))
+   `(yas-field-highlight-face       ((t (:background ,selection :foreground ,fg))))
 
    ;; Vertico
    `(vertico-current  ((t (:background ,lblue))))
