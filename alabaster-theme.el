@@ -47,22 +47,15 @@
 
       ;; lighter variantions of the above, prefiex with `l'
       (lblue      "#DBF1FF")            ; secondary selection, session background
-      (lgreen     "#DBECB6")            ; git added
       (ad         "#B0D9A0")            ; git added highlit
-      (lred       "#FFE0E0")            ; git removed
       (rm         "#EBB9BC")            ; git removed highlight
-      (lmagenta   "#F9E0FF")
-      (lfg        "#363636")            ; dim version of bg
       (lgrey      "#A3A3A3")            ; selection: lighter grey
       (cm         "#707070")
       (lh         "#0DA59B")
       (cur        "#363636")
       (pop        "#E8E8E8")
-      (fn         "#325CC0")
-      (tb         "#000000")
       (doc        "#2D97A1")            ; docs: cyan
       (here       "#0D7680")            ; shell heredoc: ft-gree
-      (solg       "#1DD79B")            ; flycheck-info: solana green
       (inf        "#AA9031")
       (hl         "#FFBC5D"))           ; highlight: orange
 
@@ -97,6 +90,7 @@
    `(help-key-binding               ((t (:bold t))))
    `(shadow                         ((t (:foreground ,cm))))
    `(error                          ((t (:foreground ,red))))
+   `(dired-directory                ((t (:foreground ,blue))))
 
    ;; ISearch
    `(isearch                        ((t (:background ,selection :foreground ,fg))))
@@ -220,9 +214,6 @@
    ;; `(popup-isearch-match            ((t (:background "#CFA300" :foreground "black"))))
    ;;
    ;; `(tooltip                        ((t ())))
-   ;; `(dired-directory                ((t (:foreground ,light-purple))))
-   ;; `(web-mode-html-attr-name-face   ((t ())))
-   ;; `(web-mode-html-tag-face         ((t ())))
    ;;
    ;; Emacs Rime
    `(rime-preedit-face              ((t (:underline t))))
@@ -234,14 +225,6 @@
    `(rime-code-face                 ((t (:bold t))))
    `(rime-default-face              ((t ())))
    `(rime-highlight-candidate-face  ((t ())))
-
-   ;;
-   ;; ;; Web Mode
-   `(web-mode-function-call-face    ((t ())))
-   `(web-mode-function-name-face    ((t ())))
-   `(web-mode-html-tag-bracket-face ((t (:inherit parenthesis))))
-   `(web-mode-symbol-face           ((t ())))
-   `(css-selector                   ((t ())))
 
    ;; Markdown
    `(markdown-header-face-1             ((t (:bold t :height ,(nth 0 theme-header-scale)))))
@@ -265,7 +248,6 @@
    ;; Org-mode
    `(org-document-title             ((t (:bold t :height ,(nth 0 theme-header-scale)))))
    `(org-link                       ((t (:underline t))))
-   `(org-document-title             ((t ())))
    `(org-code                       ((t (:inherit font-lock-constant-face))))
    `(org-level-1                    ((t (:foreground ,fg :bold t :height ,(nth 0 theme-header-scale)))))
    `(org-level-2                    ((t (:foreground ,fg))))
