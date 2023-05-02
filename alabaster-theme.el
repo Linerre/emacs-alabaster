@@ -146,6 +146,8 @@
 
    ;; Yasnippet
    `(yas-field-highlight-face       ((t (:background ,selection :foreground ,fg))))
+   `(yascroll:thumb-fringe          ((t (:foreground ,cm :background ,cm))))
+   `(yascroll:thumb-text-area       ((t (:foreground ,cm :background ,cm))))
 
    ;; Vertico
    `(vertico-current  ((t (:background ,lblue))))
@@ -281,68 +283,13 @@
    `(erc-notice-face                ((t (:inherit font-lock-comment-face))))
    `(lsp-modeline-code-actions-face ((t (:foreground ,bg))))
    `(lsp-modeline-code-actions-preferred-face ((t (:foreground ,hl))))
-
-
+   ;; tab bar
    `(tab-bar                        ((t (:background ,fg :foreground ,bg))))
    `(tab-bar-tab                    ((t (:inverse-video t :bold t))))
    `(tab-bar-tab-inactive           ((t ())))
-
    `(ansi-color-blue                ((t (:foreground ,active))))
    `(ansi-color-bright-blue         ((t (:foreground ,selection))))
-   `(yascroll:thumb-fringe          ((t (:foreground ,cm :background ,cm))))
-   `(yascroll:thumb-text-area       ((t (:foreground ,cm :background ,cm))))
-   `(yas-field-highlight-face       ((t (:foreground ,fg :background ,lblue))))
-
-   `(embark-keybinding              ((t (:inherit font-lock-constant-face))))
-
-   ;; Treesitter
-   `(tree-sitter-hl-face:type       ((t ())))
-   `(tree-sitter-hl-face:type.parameter ((t ())))
-   `(tree-sitter-hl-face:type.argument ((t ())))
-   `(tree-sitter-hl-face:type.builtin ((t ())))
-   `(tree-sitter-hl-face:type.super ((t ())))
-   `(tree-sitter-hl-face:constructor ((t ())))
-   `(tree-sitter-hl-face:variable ((t ())))
-   `(tree-sitter-hl-face:variable.parameter ((t ())))
-   `(tree-sitter-hl-face:variable.builtin ((t ())))
-   `(tree-sitter-hl-face:variable.special ((t ())))
-   `(tree-sitter-hl-face:property ((t ())))
-   `(tree-sitter-hl-face:property.definition ((t ())))
-   `(tree-sitter-hl-face:comment ((t (:foreground ,red))))
-   ;;
-   `(tree-sitter-hl-face:doc ((t (:foreground ,doc))))
-   `(tree-sitter-hl-face:string ((t (:foreground ,green))))
-   ;;
-   `(tree-sitter-hl-face:string.special ((t (:foreground ,green))))
-   ;;
-   `(tree-sitter-hl-face:escape ((t ())))
-   `(tree-sitter-hl-face:embedded ((t ())))
-   ;;
-   `(tree-sitter-hl-face:keyword ((t ())))
-   ;;
-   `(tree-sitter-hl-face:function ((t (:foreground ,blue))))
-   `(tree-sitter-hl-face:function.builtin ((t ())))
-   `(tree-sitter-hl-face:function.call ((t ())))
-   `(tree-sitter-hl-face:function.macro ((t ())))
-   `(tree-sitter-hl-face:function.method ((t ())))
-   `(tree-sitter-hl-face:function.method.call ((t ())))
-   `(tree-sitter-hl-face:function.special ((t ())))
-
-   `(tree-sitter-hl-face:method ((t ())))
-   `(tree-sitter-hl-face:method.call ((t ())))
-   `(tree-sitter-hl-face:operator ((t ())))
-   `(tree-sitter-hl-face:punctuation ((t ())))
-   `(tree-sitter-hl-face:punctuation.bracket ((t (:foreground ,cm))))
-   `(tree-sitter-hl-face:punctuation.delimiter ((t ())))
-   `(tree-sitter-hl-face:punctuation.special ((t ())))
-   ;; dim
-   `(tree-sitter-hl-face:label ((t ())))
-   `(tree-sitter-hl-face:constant ((t ())))
-   `(tree-sitter-hl-face:constant.builtin ((t (:foreground ,magenta))))
-   ;;
-   `(tree-sitter-hl-face:number ((t (:foreground ,magenta))))
-   `(tree-sitter-hl-face:tag ((t ())))
-   `(tree-sitter-hl-face:attribute ((t ())))))
+   `(embark-keybinding              ((t (:inherit font-lock-constant-face))))))
 
 (and load-file-name
      (boundp 'custom-theme-load-path)
