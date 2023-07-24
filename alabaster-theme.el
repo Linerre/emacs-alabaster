@@ -69,7 +69,6 @@
    `(hl-line                        ((t (:background ,lblue))))
    `(fringe                         ((t (:background ,bg))))
    `(show-paren-match               ((t (:background ,hl :box (:line-width (-1 . -1) :style nil)))))
-   ;; `(show-paren-match               ((t (:foreground ,active :underline ,active))))
    `(highlight                      ((t (:background ,selection :foreground ,fg))))
    `(button                         ((t (:box (:line-width (-1 . -1))))))
    `(vertical-border                ((t ())))
@@ -91,6 +90,10 @@
    `(shadow                         ((t (:foreground ,cm))))
    `(error                          ((t (:foreground ,red))))
    `(dired-directory                ((t (:foreground ,blue))))
+   `(fill-column-indicator          ((t (:foreground ,cm))))
+   `(scroll-bar                     ((t (:foreground ,fg))))
+   `(parenthesis                    ((t (:foreground ,cm))))
+   `(eldoc-box-body                 ((t (:background ,pop :inherit default))))
 
    ;; ISearch
    `(isearch                        ((t (:background ,selection :foreground ,fg))))
@@ -203,7 +206,6 @@
    `(diff-hl-change                 ((t (:foreground ,hl :background ,hl))))
    `(diff-hl-delete                 ((t (:foreground ,fg :background ,fg))))
    `(diff-error                     ((t (:foreground ,red))))
-
    `(eshell-prompt                  ((t (:bold t))))
 
    ;; Term
@@ -211,7 +213,7 @@
    ;; `(term-color-green               ((t (:foreground ,green :background ,green))))
    ;; `(term-color-red                 ((t (:foreground ,red :background ,red))))
    ;;
-   ;; ;; Popup
+   ;; Popup
    ;; `(popup-tip-face                 ((t (:background ,bg+4 :foreground ,fg))))
    ;; `(popup-isearch-match            ((t (:background "#CFA300" :foreground "black"))))
    ;;
@@ -258,13 +260,6 @@
    `(org-level-5                    ((t ())))
    `(org-level-6                    ((t ())))
    `(org-level-7                    ((t ())))
-
-   ;; Treemacs
-   ;; `(treemacs-root-face             ((t (:inherit font-lock-function-name-face :height 1.4 :underline t))))
-   `(fill-column-indicator          ((t (:foreground ,cm))))
-   `(scroll-bar                     ((t (:foreground ,fg))))
-   `(parenthesis                    ((t (:foreground ,cm))))
-   `(eldoc-box-body                 ((t (:background ,pop :inherit default))))
 
    `(flycheck-warning               ((t (:underline (:style wave :color ,hl)))))
    `(flycheck-info                  ((t (:underline (:style wave :color ,inf)))))
